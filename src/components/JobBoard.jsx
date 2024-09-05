@@ -14,7 +14,7 @@ export default function JobBoard() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [searchTriggered, setSearchTriggered] = useState(false);
-  const [selectedJob, setSelectedJob] = useState(null); // New state for selected job
+  const [selectedJob, setSelectedJob] = useState(null);
 
   useEffect(() => {
     const getJobsData = async () => {
@@ -89,19 +89,18 @@ export default function JobBoard() {
 
   const findNearestLocation = (latitude, longitude) => {
     const nearestLocation = locations.find((location) => {
-      return true; // Implement your logic for finding the nearest location
+      return true;
     });
     setSelectedLocation(nearestLocation);
   };
 
   const handleJobClick = (job) => {
-    setSelectedJob(job); // Set the selected job when a card is clicked
+    setSelectedJob(job);
   };
 
   return (
     <div className="max-w-7xl mx-auto justify-center min-h-screen items-center flex flex-row">
       <div className="flex w-2/3 flex-col">
-        {/* Finder Section */}
         <div className="m-2 flex justify-between rounded-lg items-center  bg-[#F0F0F4] p-4">
           <div className="flex w-full items-center rounded-lg p-2">
             <input
@@ -131,24 +130,22 @@ export default function JobBoard() {
           </button>
         </div>
 
-        {/* Search Results Section */}
         <div className="m-2 rounded-xl p-4 bg-[#F0F0F4] h-[656px] overflow-auto scrollbar-hidden">
           <div className="flex justify-between items-center">
             <h2 className="text-lg font-bold py-2">Search Results</h2>
             <span>{filteredJobs.length} Jobs Found</span>
           </div>
-          {/* Cards Section */}
           <div className="grid grid-cols-2 gap-4 m-2">
             {filteredJobs.map((job, index) => (
               <div
                 key={index}
-                className="px-4 rounded-lg bg-white hover:shadow-lg hover:border cursor-pointer"
-                onClick={() => handleJobClick(job)} // Handle click on card
+                className="px-4 rounded-lg bg-white hover:shadow-lg hover:border cursor-pointer "
+                onClick={() => handleJobClick(job)}
               >
                 <div className="flex justify-start gap-x-2 py-1 pt-4">
                   <div className="items-center flex">
                     <img
-                      className="h-12 w-12 aspect-square border bg-[#DDE0DD] rounded-md p-2"
+                      className="h-14 w-14 aspect-square border bg-[#DDE0DD] rounded-md p-2"
                       src={job.logo}
                       alt={job.company}
                     />
@@ -159,7 +156,7 @@ export default function JobBoard() {
                   </div>
                 </div>
 
-                <div className="my-4 flex flex-wrap gap-2 py-1">
+                <div className="my-4 flex flex-wrap gap-2 py-1 ">
                   {job.skills.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
@@ -170,7 +167,7 @@ export default function JobBoard() {
                   ))}
                 </div>
 
-                <div className="my-4 flex justify-between items-center py-1">
+                <div className="my-4 flex justify-between items-center   py-1">
                   <div className="text-sm flex justify-between gap-3 font-medium text-gray-700">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -191,12 +188,8 @@ export default function JobBoard() {
           </div>
         </div>
       </div>
-
-      {/* Sidebar Section */}
       <div className="w-1/3 h-[764px] m-2  rounded-lg bg-white p-4">
-        {/* Conditional Rendering */}
         {!selectedJob ? (
-          // Display image if no job is selected
           <div className="flex justify-center items-center h-full">
             <img
               src="/undraw_interview_re_e5jn.svg"
@@ -205,7 +198,6 @@ export default function JobBoard() {
             />
           </div>
         ) : (
-          // Display job details if a job is selected
           <div>
             <h2 className="text-xl font-bold">{selectedJob.position}</h2>
             <p className="text-lg">{selectedJob.company}</p>
