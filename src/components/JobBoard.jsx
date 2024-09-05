@@ -102,7 +102,7 @@ export default function JobBoard() {
     <div className="max-w-7xl mx-auto justify-center min-h-screen items-center flex flex-row">
       <div className="flex w-2/3 flex-col">
         {/* Finder Section */}
-        <div className="m-2 flex justify-between rounded-lg items-center space-x-2 bg-[#F0F0F4] p-4">
+        <div className="m-2 flex justify-between rounded-lg items-center  bg-[#F0F0F4] p-4">
           <div className="flex w-full items-center rounded-lg p-2">
             <input
               type="text"
@@ -193,7 +193,7 @@ export default function JobBoard() {
       </div>
 
       {/* Sidebar Section */}
-      <div className="w-1/3 h-[764px] rounded-lg bg-white p-4">
+      <div className="w-1/3 h-[764px] m-2  rounded-lg bg-white p-4">
         {/* Conditional Rendering */}
         {!selectedJob ? (
           // Display image if no job is selected
