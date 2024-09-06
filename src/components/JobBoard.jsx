@@ -98,6 +98,10 @@ export default function JobBoard() {
     setSelectedJob(job);
   };
 
+  const redirectToPortfolio = () => {
+    window.open("https://rachhadiyayash.github.io/Portfolio/", "_blank");
+  };
+
   return (
     <div className="max-w-7xl mx-auto justify-center min-h-screen items-center flex flex-row">
       <div className="flex w-2/3 flex-col">
@@ -233,7 +237,10 @@ export default function JobBoard() {
             <hr />
             <p className="mt-2 font-extrabold text-xl mt-4">Base Salary</p>
             <p className="text-gray-400 my-3">{selectedJob.salary}</p>
-            <button className="mt-auto bg-[#FA5E9F] text-white font-bold w-full rounded-lg py-1 px-2">
+            <button
+              onClick={redirectToPortfolio}
+              className="mt-auto bg-[#FA5E9F] text-white font-bold w-full rounded-lg py-1 px-2"
+            >
               Apply Now
             </button>
           </div>
