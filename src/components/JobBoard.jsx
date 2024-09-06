@@ -130,7 +130,7 @@ export default function JobBoard() {
           </button>
         </div>
 
-        <div className="m-2 rounded-xl p-4 bg-[#F0F0F4] h-[656px] overflow-auto scrollbar-hidden">
+        <div className="m-2 rounded-xl p-4 bg-[#F0F0F4] h-[669px] overflow-auto scrollbar-hidden">
           <div className="flex justify-between items-center">
             <h2 className="text-lg font-bold py-2">Search Results</h2>
             <span>{filteredJobs.length} Jobs Found</span>
@@ -198,11 +198,44 @@ export default function JobBoard() {
             />
           </div>
         ) : (
-          <div>
-            <h2 className="text-xl font-bold">{selectedJob.position}</h2>
+          <div className="flex h-full flex-col">
+            <img
+              className="h-20 w-20 aspect-square bg-[#DDE0DD] rounded-md my-2 p-4"
+              src={selectedJob.logo}
+              alt={selectedJob.company}
+            />
+            <h2 className="text-xl font-extrabold py-1">
+              {selectedJob.position}
+            </h2>
             <p className="text-lg">{selectedJob.company}</p>
             <p className="text-sm text-gray-500">{selectedJob.location}</p>
-            <p className="mt-2">{selectedJob.description}</p>
+            <br />
+            <span className="inline-flex items-center rounded-xl mb-6 px-2 py-1 text-sm font-medium text-pink-600 bg-[#FDE5EF] w-[150px]">
+              + {selectedJob.totalApplications} Applications
+            </span>
+            <hr />
+            <p className="mt-2 font-extrabold text-xl mt-4">Description</p>
+            <p className="my-2 h-[100px] mb-4 overflow-scroll scrollbar-hidden">
+              {selectedJob.description}
+            </p>
+            <hr />
+            <p className="mt-2 font-extrabold text-xl mt-4">Skills</p>
+            <div className="my-4 flex flex-wrap gap-2 py-1">
+              {selectedJob.skills.map((skill, skillIndex) => (
+                <span
+                  key={skillIndex}
+                  className="inline-flex items-center rounded-md px-2 py-1 text-xs font-medium bg-[#DDE0DD]"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+            <hr />
+            <p className="mt-2 font-extrabold text-xl mt-4">Base Salary</p>
+            <p className="text-gray-400 my-3">{selectedJob.salary}</p>
+            <button className="mt-auto bg-[#FA5E9F] text-white font-bold w-full rounded-lg py-1 px-2">
+              Apply Now
+            </button>
           </div>
         )}
       </div>
