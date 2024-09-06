@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Select from "react-select";
 
 const fetchJobsData = async () => {
-  const response = await fetch("src/api/jobs.json");
+  const response = await fetch("/jobs.json");
   const data = await response.json();
   return data;
 };
